@@ -28,28 +28,34 @@ class Gameboard {
   }
 
   addShip(initialLocation, direction, ship) {
-    for (let i = 0; i <= shipSize.length; i++) {
-      direction == "n"
-        ? ((this.board[currentLocation - 10] = 1),
-          (currentLocation -= 10),
-          shipLocation.push(currentLocation))
-        : null;
-      direction == "e"
-        ? ((this.board[currentLocation + 1] = 1),
-          (currentLocation += 1),
-          shipLocation.push(currentLocation))
-        : null;
-      direction == "s"
-        ? ((this.board[currentLocation + 10] = 1),
-          (currentLocation += 10),
-          shipLocation.push(currentLocation))
-        : null;
-      direction == "w"
-        ? ((this.board[currentLocation - 1] = 1),
-          (currentLocation -= 1),
-          shipLocation.push(currentLocation - 1))
-        : null;
+    let currentLocation = initialLocation;
+    let valid = this.isValid(initialLocation, direction, ship);
+    let shipLocation = [];
+    if (valid) {
+      for (let i = 0; i < ship.length; i++) {
+        if (direction == "n") {
+          this.board[currentLocation] = 1;
+          shipLocation.push(currentLocation);
+          currentLocation -= 10;
+        }
+        if (direction == "e") {
+          this.board[currentLocation] = 1;
+          shipLocation.push(currentLocation);
+          currentLocation += 1;
+        }
+        if (direction == "s") {
+          this.board[currentLocation] = 1;
+          shipLocation.push(currentLocation);
+          currentLocation += 10;
+        }
+        if (direction == "w") {
+          this.board[currentLocation] = 1;
+          shipLocation.push(currentLocation);
+          currentLocation -= 1;
+        }
+      }
     }
+    return valid ? shipLocation : null;
   }
 }
 
