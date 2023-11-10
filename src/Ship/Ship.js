@@ -1,6 +1,7 @@
 class Ship {
   constructor(length) {
     this.length = length;
+    this.location = [];
   }
 
   hit = 0;
