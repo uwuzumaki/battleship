@@ -2,7 +2,7 @@ class Gameboard {
   constructor() {
     this.board = this.createBoard();
     this.shipLocations = [];
-    this.missed = [];
+    this.attempts = [];
     this.allShips = [];
   }
 
@@ -91,7 +91,9 @@ class Gameboard {
   receiveAttack(x, y) {
     const pos = x * 10 + y;
     const hit = this.shipLocations.includes(pos);
-    if (hit) {
+    const triedBefore = this.attempts.includes(pos);
+    let result;
+    if (hit && !triedBefore) {
       for (let i = 0; i < this.allShips.length; i++) {
         const currentShip = this.allShips[i];
         if (currentShip.location.includes(pos)) {
@@ -101,10 +103,16 @@ class Gameboard {
           }
         }
       }
-    } else {
-      this.missed.push(pos);
     }
-    return hit;
+    triedBefore ? null : this.attempts.push(pos);
+    if (hit && !triedBefore) {
+      result = true;
+    } else if (!hit && !triedBefore) {
+      result = false;
+    } else {
+      result = null;
+    }
+    return result;
   }
 
   allSunk() {
