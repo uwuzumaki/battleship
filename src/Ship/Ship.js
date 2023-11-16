@@ -5,7 +5,7 @@ class Ship {
   }
 
   hit = 0;
-  shipStatus = false;
+  shipStatus = true;
 
   shipHit() {
     this.hit++;
@@ -16,7 +16,7 @@ class Ship {
   }
 
   updateStatus() {
-    shipStatus = true;
+    this.shipStatus = false;
   }
 
   currentStatus() {
