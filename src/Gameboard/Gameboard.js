@@ -106,8 +106,10 @@ class Gameboard {
     }
     triedBefore ? null : this.attempts.push(pos);
     if (hit && !triedBefore) {
+      this.board[pos] = 2;
       result = true;
     } else if (!hit && !triedBefore) {
+      this.board[pos] = 3;
       result = false;
     } else {
       result = null;
