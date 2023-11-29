@@ -48,7 +48,7 @@ describe("Player actions", () => {
     newGameboard.addShip(66, "s", ship2);
   });
 
-  test.only("receiveAttack", () => {
+  test("receiveAttack", () => {
     expect(newGameboard.receiveAttack(3, 2)).toBeTruthy();
     expect(newGameboard.receiveAttack(5, 3)).toBeFalsy();
     expect(newGameboard.allShips[0].hit).toEqual(1);
