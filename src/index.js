@@ -1,6 +1,3 @@
-const body = document.body;
+import Initialize from "./modules/Initialize/Init";
 
-const h1 = document.createElement("h1");
-h1.innerHTML = "Hello World";
-
-body.appendChild(h1);
+Initialize();
