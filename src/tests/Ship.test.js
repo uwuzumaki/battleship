@@ -1,4 +1,4 @@
-import { Ship } from "../modules/Ship/Ship";
+import { Ship } from "../modules/factories/Ship/Ship";
 
 describe("Ship test", () => {
   let tempShip;

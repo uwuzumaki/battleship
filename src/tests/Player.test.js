@@ -1,6 +1,6 @@
-import { Gameboard } from "../modules/Gameboard/Gameboard";
-import { Player } from "../modules/Player/Player";
-import { Ship } from "../modules/Ship/Ship";
+import { Gameboard } from "../modules/factories/Gameboard/Gameboard";
+import { Player } from "../modules/factories/Player/Player";
+import { Ship } from "../modules/factories/Ship/Ship";
 
 describe("Player and gameboard interactions", () => {
   let gameboard;

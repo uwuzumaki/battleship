@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/modules/Initialize/styles.css\");\n\n\nconst Initialize = () => {};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Initialize);\n\n\n//# sourceURL=webpack://battleship/./src/modules/Initialize/Init.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/modules/Initialize/styles.css\");\n\n\nconst Initialize = () => {\n  const app = document.createElement(\"div\");\n  app.id = \"app\";\n  document.body.appendChild(app);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Initialize);\n\n\n//# sourceURL=webpack://battleship/./src/modules/Initialize/Init.js?");
 
 /***/ })
 
