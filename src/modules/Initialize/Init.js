@@ -1,9 +1,8 @@
 import "./styles.css";
 
 const Initialize = () => {
-  const app = document.createElement("div");
-  app.id = "app";
-  document.body.appendChild(app);
+  const app = document.getElementById("app");
+  console.log("123");
 };
 
 export default Initialize;
