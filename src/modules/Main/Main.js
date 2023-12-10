@@ -1,4 +1,4 @@
-import PlayerBoard from "../Player/PlayerBoard";
+import PlayerBoard from "../PlayerController/PlayerController";
 import "./Main.css";
 
 const Main = () => {

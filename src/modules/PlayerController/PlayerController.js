@@ -1,4 +1,4 @@
-import "./PlayerBoard.css";
+import "./PlayerController.css";
 import { Gameboard } from "../factories/Gameboard/Gameboard";
 
 const PlayerBoard = (id) => {

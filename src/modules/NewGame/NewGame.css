@@ -1,0 +1,19 @@
+#new-game {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #18abe6;
+}
+
+#new-game-btn {
+  margin: 2rem;
+  padding: 0.5rem 1rem;
+  border: 0.1rem black solid;
+  border-radius: 1rem;
+  transition: box-shadow 200ms;
+}
+
+#new-game-btn:hover {
+  box-shadow: 0 0 0.75rem rgba(33, 33, 33, 0.8);
+}

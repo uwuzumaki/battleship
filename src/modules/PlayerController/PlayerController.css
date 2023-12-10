@@ -1,11 +1,11 @@
 .boardContainer {
-  min-width: 300px;
-  min-height: 300px;
-  margin: 3rem 5rem 5rem 5rem;
+  width: 20rem;
+  height: 20rem;
+  margin: 5rem 5rem 5rem 5rem;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 1px;
-  border: 0.5px solid black;
+  border: 0.1rem solid black;
   background-color: black;
 }
 
