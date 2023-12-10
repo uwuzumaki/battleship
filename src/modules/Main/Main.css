@@ -28,4 +28,8 @@
   #content {
     flex-direction: column;
   }
+  .board-identifier {
+    font-size: 1rem;
+    margin: 1rem 2.5rem 1rem 2.5rem;
+  }
 }
