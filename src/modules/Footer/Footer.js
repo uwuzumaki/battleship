@@ -10,7 +10,7 @@ const Footer = () => {
 
   const link = document.createElement("a");
   link.id = "github-link";
-  link.href = "https://github.com/uwuzumaki/top-weather-app";
+  link.href = "https://github.com/uwuzumaki/battleship";
   footer.appendChild(link);
 
   const logo = document.createElement("img");
