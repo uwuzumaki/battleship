@@ -16,3 +16,9 @@
 #opp-div {
   flex: 1;
 }
+
+.board-identifier {
+  margin: 2rem 5rem 0rem 5rem;
+  font-size: 2rem;
+  color: #e0fcf4;
+}

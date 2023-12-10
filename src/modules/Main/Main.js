@@ -12,12 +12,23 @@ const Main = () => {
   playerDiv.id = "player-div";
   container.appendChild(playerDiv);
 
-  PlayerBoard();
+  const playerTitle = document.createElement("div");
+  playerTitle.classList = "board-identifier";
+  playerTitle.innerHTML = "Player Ships";
+  playerDiv.appendChild(playerTitle);
+
+  PlayerBoard("player-div");
 
   const oppDiv = document.createElement("div");
   oppDiv.id = "opp-div";
-  oppDiv.textContent = "123";
   container.appendChild(oppDiv);
+
+  const oppTitle = document.createElement("div");
+  oppTitle.classList = "board-identifier";
+  oppTitle.innerHTML = "Enemy Ships";
+  oppDiv.appendChild(oppTitle);
+
+  PlayerBoard("opp-div");
 };
 
 export default Main;
