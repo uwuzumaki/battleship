@@ -1,0 +1,18 @@
+#content {
+  width: 66rem;
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#player-div {
+  flex: 1;
+}
+
+#opp-div {
+  flex: 1;
+}

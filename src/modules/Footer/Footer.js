@@ -2,11 +2,11 @@ import githubImg from "./assets/github-dark.png";
 import "./Footer.css";
 
 const Footer = () => {
-  const content = document.getElementById("app");
+  const app = document.getElementById("app");
 
   const footer = document.createElement("div");
   footer.id = "footer";
-  content.appendChild(footer);
+  app.appendChild(footer);
 
   const link = document.createElement("a");
   link.id = "github-link";
