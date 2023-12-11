@@ -9,6 +9,7 @@ const NewGame = () => {
   newGame.id = "new-game";
   app.appendChild(newGame);
 
+  //------------------- Modal Start -------------------
   const modal = document.createElement("div");
   modal.id = "modal";
   content.appendChild(modal);
@@ -17,6 +18,7 @@ const NewGame = () => {
   modalC.id = "modal-content";
   modal.appendChild(modalC);
 
+  //------------ Confirmation Start ------------
   const modalRestart = document.createElement("div");
   modalRestart.id = "restart";
   modalC.appendChild(modalRestart);
@@ -50,7 +52,9 @@ const NewGame = () => {
   restartNo.addEventListener("click", () => {
     modal.style.display = "none";
   });
+  //------------ Confirmation End ------------
 
+  //------------ Ship Placement Start ------------
   const newBoardModal = document.createElement("div");
   newBoardModal.id = "newboard-modal";
   modalC.appendChild(newBoardModal);
@@ -81,6 +85,9 @@ const NewGame = () => {
     shipDiv.textContent = i;
     newShipHolder.appendChild(shipDiv);
   }
+  //------------ Ship Placement End ------------
+
+  //------------------- Modal End -------------------
 
   const newGameBtn = document.createElement("div");
   newGameBtn.id = "new-game-btn";
