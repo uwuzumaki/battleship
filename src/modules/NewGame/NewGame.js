@@ -1,3 +1,4 @@
+import PlayerBoard from "../PlayerController/PlayerController";
 import "./NewGame.css";
 
 const NewGame = () => {
@@ -37,6 +38,7 @@ const NewGame = () => {
 
   restartYes.addEventListener("click", () => {
     modalRestart.style.display = "none";
+    newBoardModal.style.display = "flex";
   });
 
   const restartNo = document.createElement("div");
@@ -49,6 +51,37 @@ const NewGame = () => {
     modal.style.display = "none";
   });
 
+  const newBoardModal = document.createElement("div");
+  newBoardModal.id = "newboard-modal";
+  modalC.appendChild(newBoardModal);
+
+  const newBoardTitle = document.createElement("div");
+  newBoardTitle.id = "newboard-title";
+  newBoardTitle.textContent = "Place your ships!";
+  newBoardModal.appendChild(newBoardTitle);
+
+  const newBoardBody = document.createElement("div");
+  newBoardBody.id = "newgame-gameboard";
+  newBoardModal.appendChild(newBoardBody);
+
+  PlayerBoard("newgame-gameboard");
+
+  const newShipHolder = document.createElement("div");
+  newShipHolder.id = "newship-holder";
+  newBoardBody.appendChild(newShipHolder);
+
+  const randomizeBtn = document.createElement("div");
+  randomizeBtn.id = "randomize-btn";
+  randomizeBtn.textContent = "Randomize!";
+  newShipHolder.appendChild(randomizeBtn);
+
+  for (let i = 0; i < 4; i++) {
+    const shipDiv = document.createElement("div");
+    shipDiv.classList.add("ship-holder-div");
+    shipDiv.textContent = i;
+    newShipHolder.appendChild(shipDiv);
+  }
+
   const newGameBtn = document.createElement("div");
   newGameBtn.id = "new-game-btn";
   newGameBtn.innerHTML = "New Game";
@@ -57,6 +90,7 @@ const NewGame = () => {
   newGameBtn.addEventListener("click", () => {
     modal.style.display = "block";
     modalRestart.style.display = "block";
+    newBoardModal.style.display = "none";
   });
 
   window.onclick = (e) => {
