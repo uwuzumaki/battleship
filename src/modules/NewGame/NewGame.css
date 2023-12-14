@@ -49,22 +49,6 @@
   box-shadow: 0 0 0.75rem rgba(33, 33, 33, 0.8);
 }
 
-#newboard-modal {
-  display: none;
-  flex-direction: column;
-}
-
-#newboard-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#newgame-gameboard {
-  display: flex;
-  flex-direction: row;
-}
-
 #new-game-btn {
   margin: 2rem;
   padding: 0.5rem 1rem;

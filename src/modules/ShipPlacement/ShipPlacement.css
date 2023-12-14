@@ -1,0 +1,15 @@
+#newboard-modal {
+  display: none;
+  flex-direction: column;
+}
+
+#newboard-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#newgame-gameboard {
+  display: flex;
+  flex-direction: row;
+}

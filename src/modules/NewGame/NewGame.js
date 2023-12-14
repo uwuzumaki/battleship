@@ -1,4 +1,4 @@
-import PlayerBoard from "../PlayerController/PlayerController";
+import ShipPlacement from "../ShipPlacement/ShipPlacement";
 import "./NewGame.css";
 
 const NewGame = () => {
@@ -41,7 +41,12 @@ const NewGame = () => {
   restartYes.addEventListener("click", () => {
     modalRestart.style.display = "none";
     newBoardModal.style.display = "flex";
+    ShipPlacement();
   });
+
+  const newBoardModal = document.createElement("div");
+  newBoardModal.id = "newboard-modal";
+  modalC.appendChild(newBoardModal);
 
   const restartNo = document.createElement("div");
   restartNo.id = "restart-No";
@@ -53,39 +58,6 @@ const NewGame = () => {
     modal.style.display = "none";
   });
   //------------ Confirmation End ------------
-
-  //------------ Ship Placement Start ------------
-  const newBoardModal = document.createElement("div");
-  newBoardModal.id = "newboard-modal";
-  modalC.appendChild(newBoardModal);
-
-  const newBoardTitle = document.createElement("div");
-  newBoardTitle.id = "newboard-title";
-  newBoardTitle.textContent = "Place your ships!";
-  newBoardModal.appendChild(newBoardTitle);
-
-  const newBoardBody = document.createElement("div");
-  newBoardBody.id = "newgame-gameboard";
-  newBoardModal.appendChild(newBoardBody);
-
-  PlayerBoard("newgame-gameboard");
-
-  const newShipHolder = document.createElement("div");
-  newShipHolder.id = "newship-holder";
-  newBoardBody.appendChild(newShipHolder);
-
-  const randomizeBtn = document.createElement("div");
-  randomizeBtn.id = "randomize-btn";
-  randomizeBtn.textContent = "Randomize!";
-  newShipHolder.appendChild(randomizeBtn);
-
-  for (let i = 0; i < 4; i++) {
-    const shipDiv = document.createElement("div");
-    shipDiv.classList.add("ship-holder-div");
-    shipDiv.textContent = i;
-    newShipHolder.appendChild(shipDiv);
-  }
-  //------------ Ship Placement End ------------
 
   //------------------- Modal End -------------------
 
