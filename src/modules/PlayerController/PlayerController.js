@@ -1,20 +1,20 @@
 import "./PlayerController.css";
 import { Gameboard } from "../factories/Gameboard/Gameboard";
 
-const PlayerBoard = (id) => {
-  const playerDiv = document.getElementById(id);
+const PlayerBoard = (childID, parentID) => {
+  const playerDiv = document.getElementById(parentID);
 
   const playerBoard = new Gameboard();
-  playerBoard.createBoard();
 
   const boardContainer = document.createElement("div");
   boardContainer.classList.add("boardContainer");
+  boardContainer.id = childID;
   playerDiv.appendChild(boardContainer);
 
   for (let i = 0; i < playerBoard.board.length; i++) {
     const square = document.createElement("div");
     square.id = `squareID${i}`;
-    if (id === "opp-div") {
+    if (parentID === "opp-div") {
       square.classList.add("square-blink");
     } else {
       square.classList.add("square-solid");
@@ -22,11 +22,12 @@ const PlayerBoard = (id) => {
     boardContainer.appendChild(square);
   }
 
-  if (id === "opp-div") {
+  if (parentID === "opp-div") {
     boardContainer.addEventListener("mouseover", (e) => {
       console.log(e.target.id);
     });
   }
+  return playerBoard;
 };
 
 export default PlayerBoard;

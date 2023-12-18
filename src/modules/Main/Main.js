@@ -17,7 +17,7 @@ const Main = () => {
   playerTitle.innerHTML = "Player Ships";
   playerDiv.appendChild(playerTitle);
 
-  PlayerBoard("player-div");
+  PlayerBoard(null, "player-div");
 
   const oppDiv = document.createElement("div");
   oppDiv.id = "opp-div";
@@ -28,7 +28,7 @@ const Main = () => {
   oppTitle.innerHTML = "Enemy Ships";
   oppDiv.appendChild(oppTitle);
 
-  PlayerBoard("opp-div");
+  PlayerBoard(null, "opp-div");
 };
 
 export default Main;
