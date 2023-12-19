@@ -1,8 +1,10 @@
 import "./ShipPlacement.css";
 import PlayerBoard from "../PlayerController/PlayerController";
+import { Ship } from "../factories/Ship/Ship";
 
 const ShipPlacement = () => {
   const modal = document.getElementById("newboard-modal");
+  modal.textContent = "";
 
   const newBoardTitle = document.createElement("div");
   newBoardTitle.id = "newboard-title";
@@ -21,6 +23,7 @@ const ShipPlacement = () => {
   });
 
   // ----- Controls the board end -----
+  // ----- Controls the ship start -----
   const newShipHolder = document.createElement("div");
   newShipHolder.id = "newship-holder";
   newBoardBody.appendChild(newShipHolder);
@@ -33,20 +36,40 @@ const ShipPlacement = () => {
   for (let i = 0; i < 5; i++) {
     const shipDiv = document.createElement("div");
     shipDiv.classList.add("ship-holder-div");
-    shipDiv.textContent = i;
+    shipDiv.textContent = i + 1;
     shipDiv.id = i + 1;
     newShipHolder.appendChild(shipDiv);
   }
 
+  const carrier = new Ship(5);
+  const battleship = new Ship(4);
+  const destroyer = new Ship(3);
+  const submarine = new Ship(3);
+  const patrolBoat = new Ship(2);
+
   let currentShip = null;
   newShipHolder.addEventListener("click", (e) => {
     if (e.target.classList.contains("ship-holder-div")) {
-      currentShip = e.target.id;
-      console.log(currentShip);
+      switch (e.target.id) {
+        case "1":
+          currentShip = carrier;
+          break;
+        case "2":
+          currentShip = battleship;
+          break;
+        case "3":
+          currentShip = destroyer;
+          break;
+        case "4":
+          currentShip = submarine;
+          break;
+        case "5":
+          currentShip = patrolBoat;
+          break;
+      }
     }
+    console.log(currentShip);
   });
-
-  // const placementBoard = docu;
 };
 
 export default ShipPlacement;

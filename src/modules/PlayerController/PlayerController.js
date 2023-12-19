@@ -1,19 +1,19 @@
 import "./PlayerController.css";
-import { Gameboard } from "../factories/Gameboard/Gameboard";
+import { Player } from "../factories/Player/Player";
 
 const PlayerBoard = (childID, parentID) => {
   const playerDiv = document.getElementById(parentID);
 
-  const playerBoard = new Gameboard();
+  const playerBoard = new Player();
 
   const boardContainer = document.createElement("div");
   boardContainer.classList.add("boardContainer");
   boardContainer.id = childID;
   playerDiv.appendChild(boardContainer);
 
-  for (let i = 0; i < playerBoard.board.length; i++) {
+  for (let i = 0; i < playerBoard.gameboard.board.length; i++) {
     const square = document.createElement("div");
-    square.id = `squareID${i}`;
+    square.id = `${childID}-square-${i}`;
     if (parentID === "opp-div") {
       square.classList.add("square-blink");
     } else {
