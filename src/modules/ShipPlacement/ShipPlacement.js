@@ -18,8 +18,13 @@ const ShipPlacement = () => {
 
   const player = PlayerBoard("newgame-player-board", "newgame-container");
   const board = document.getElementById("newgame-player-board");
-  board.addEventListener("click", (e) => {
-    console.log(e.target.id);
+  board.addEventListener("mouseover", (e) => {
+    if (e.target.classList.contains("square-solid")) {
+      console.log(e.target.id);
+    }
+  });
+  board.addEventListener("mouseout", (e) => {
+    console.log("mouseout", e.target.id);
   });
 
   // ----- Controls the board end -----
