@@ -42,7 +42,18 @@ const ShipPlacement = () => {
             `newgame-player-board-square-${location + i}`
           );
           square.style = "";
+          console.log("123");
         }
+      }
+    }
+  });
+  board.addEventListener("click", (e) => {
+    if (e.target.classList.contains("square-solid")) {
+      const location = parseInt(e.target.id.match(/\d+/g)[0]);
+      const valid = player.gameboard.isValidShip(location, "e", currentShip);
+      if (valid) {
+        player.gameboard.addShip(location, "e", currentShip);
+        currentShip = nullShip;
       }
     }
   });
@@ -71,8 +82,9 @@ const ShipPlacement = () => {
   const destroyer = new Ship(3);
   const submarine = new Ship(3);
   const patrolBoat = new Ship(2);
+  const nullShip = new Ship(0);
 
-  let currentShip = new Ship(0);
+  let currentShip = nullShip;
   newShipHolder.addEventListener("click", (e) => {
     if (e.target.classList.contains("ship-holder-div")) {
       switch (e.target.id) {
