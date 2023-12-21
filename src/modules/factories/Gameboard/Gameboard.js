@@ -15,8 +15,8 @@ class Gameboard {
   }
 
   isValidShip(initialLocation, direction, ship) {
-    let first = initialLocation;
-    let last;
+    let first = parseInt(initialLocation);
+    let last = 0;
     if (direction == "n") last = first - 10 * (ship.length - 1);
     if (direction == "e") last = first + (ship.length - 1);
     if (direction == "s") last = first + 10 * (ship.length - 1);
