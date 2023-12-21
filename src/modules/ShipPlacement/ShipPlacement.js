@@ -20,11 +20,31 @@ const ShipPlacement = () => {
   const board = document.getElementById("newgame-player-board");
   board.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("square-solid")) {
-      console.log(e.target.id);
+      const location = parseInt(e.target.id.match(/\d+/g)[0]);
+      const valid = player.gameboard.isValidShip(location, "e", currentShip);
+      if (valid) {
+        for (let i = 0; i < currentShip.length; i++) {
+          const square = document.getElementById(
+            `newgame-player-board-square-${location + i}`
+          );
+          square.style = "background-color: green";
+        }
+      }
     }
   });
   board.addEventListener("mouseout", (e) => {
-    console.log("mouseout", e.target.id);
+    if (e.target.classList.contains("square-solid")) {
+      const location = parseInt(e.target.id.match(/\d+/g)[0]);
+      const valid = player.gameboard.isValidShip(location, "e", currentShip);
+      if (valid) {
+        for (let i = 0; i < currentShip.length; i++) {
+          const square = document.getElementById(
+            `newgame-player-board-square-${location + i}`
+          );
+          square.style = "";
+        }
+      }
+    }
   });
 
   // ----- Controls the board end -----
@@ -52,7 +72,7 @@ const ShipPlacement = () => {
   const submarine = new Ship(3);
   const patrolBoat = new Ship(2);
 
-  let currentShip = null;
+  let currentShip = new Ship(0);
   newShipHolder.addEventListener("click", (e) => {
     if (e.target.classList.contains("ship-holder-div")) {
       switch (e.target.id) {
