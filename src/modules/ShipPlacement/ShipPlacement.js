@@ -64,11 +64,6 @@ const ShipPlacement = () => {
   newShipHolder.id = "newship-holder";
   newBoardBody.appendChild(newShipHolder);
 
-  const randomizeBtn = document.createElement("div");
-  randomizeBtn.id = "randomize-btn";
-  randomizeBtn.textContent = "Randomize!";
-  newShipHolder.appendChild(randomizeBtn);
-
   for (let i = 0; i < 5; i++) {
     const shipDiv = document.createElement("div");
     shipDiv.classList.add("ship-holder-div");
@@ -107,6 +102,20 @@ const ShipPlacement = () => {
     }
     console.log(currentShip);
   });
+
+  const confirmDiv = document.createElement("div");
+  confirmDiv.id = "confirm-div";
+  modal.appendChild(confirmDiv);
+
+  const confirmButton = document.createElement("div");
+  confirmButton.classList.add("modal-button");
+  confirmButton.textContent = "Confirm";
+  confirmDiv.appendChild(confirmButton);
+
+  const resetButton = document.createElement("div");
+  resetButton.classList.add("modal-button");
+  resetButton.textContent = "Reset";
+  confirmDiv.appendChild(resetButton);
 };
 
 export default ShipPlacement;
