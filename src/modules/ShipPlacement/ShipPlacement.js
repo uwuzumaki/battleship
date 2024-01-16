@@ -64,10 +64,14 @@ const ShipPlacement = () => {
   newShipHolder.id = "newship-holder";
   newBoardBody.appendChild(newShipHolder);
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 5; i > 0; i--) {
     const shipDiv = document.createElement("div");
+    for (let j = i; j > 0; j--) {
+      const innerBox = document.createElement("div");
+      innerBox.classList.add("inner-box");
+      shipDiv.appendChild(innerBox);
+    }
     shipDiv.classList.add("ship-holder-div");
-    shipDiv.textContent = i + 1;
     shipDiv.id = i + 1;
     newShipHolder.appendChild(shipDiv);
   }

@@ -1,3 +1,7 @@
+:root {
+  --border: 1px black solid;
+}
+
 #newboard-modal {
   display: none;
   flex-direction: column;
@@ -25,8 +29,26 @@
 #newship-holder {
   margin: 5rem;
   display: flex;
+  width: 10rem;
+  max-width: 100%;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.ship-holder-div {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  border-top: var(--border);
+  margin: 5px;
+}
+
+.inner-box {
+  aspect-ratio: 1/1;
+  max-width: 1.5rem;
+  flex: 0 1 100px;
+  background-color: #18abe6;
+  border: var(--border);
 }
 
 #confirm-div {
@@ -37,7 +59,7 @@
 }
 
 .modal-button {
-  border: 1px solid black;
+  border: var(--border);
   padding: 1rem 2rem;
   margin: 1.5rem 1rem 0rem 1rem;
   border-radius: 1.5rem;
