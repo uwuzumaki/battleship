@@ -64,7 +64,7 @@ const ShipPlacement = () => {
   newShipHolder.id = "newship-holder";
   newBoardBody.appendChild(newShipHolder);
 
-  for (let i = 5; i > 0; i--) {
+  for (let i = 5; i > 1; i--) {
     const shipDiv = document.createElement("div");
     for (let j = i; j > 0; j--) {
       const innerBox = document.createElement("div");
@@ -72,9 +72,22 @@ const ShipPlacement = () => {
       shipDiv.appendChild(innerBox);
     }
     shipDiv.classList.add("ship-holder-div");
-    shipDiv.id = i + 1;
+    shipDiv.dataset.shipNumber = `${i}`;
     newShipHolder.appendChild(shipDiv);
   }
+
+  const shipDiv = document.createElement("div");
+  for (let i = 3; i > 0; i--) {
+    const innerBox = document.createElement("div");
+    innerBox.classList.add("inner-box");
+    shipDiv.appendChild(innerBox);
+  }
+  shipDiv.classList.add("ship-holder-div");
+  shipDiv.dataset.shipNumber = "0";
+  newShipHolder.insertBefore(
+    shipDiv,
+    document.querySelector("[data-ship-number='3']")
+  );
 
   const carrier = new Ship(5);
   const battleship = new Ship(4);
@@ -85,22 +98,23 @@ const ShipPlacement = () => {
 
   let currentShip = nullShip;
   newShipHolder.addEventListener("click", (e) => {
-    if (e.target.classList.contains("ship-holder-div")) {
-      switch (e.target.id) {
-        case "1":
+    const ship = e.target.parentNode.dataset.shipNumber;
+    if (e.target.parentNode.classList.contains("ship-holder-div")) {
+      switch (ship) {
+        case "5":
           currentShip = carrier;
           break;
-        case "2":
+        case "4":
           currentShip = battleship;
           break;
         case "3":
           currentShip = destroyer;
           break;
-        case "4":
-          currentShip = submarine;
-          break;
-        case "5":
+        case "2":
           currentShip = patrolBoat;
+          break;
+        case "0":
+          currentShip = submarine;
           break;
       }
     }

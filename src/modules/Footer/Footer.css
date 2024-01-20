@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
   bottom: 0;
   font-family: "Source Sans Pro";
 }
