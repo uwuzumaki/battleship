@@ -27,7 +27,7 @@ const ShipPlacement = () => {
           const square = document.getElementById(
             `newgame-player-board-square-${location + i}`
           );
-          square.style = "background-color: green";
+          square.classList.add("picked-square");
         }
       }
     }
@@ -41,8 +41,7 @@ const ShipPlacement = () => {
           const square = document.getElementById(
             `newgame-player-board-square-${location + i}`
           );
-          square.style = "";
-          console.log("123");
+          square.classList.remove("picked-square");
         }
       }
     }

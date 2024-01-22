@@ -70,3 +70,10 @@
 .modal-button:hover {
   box-shadow: 0 0 0.75rem rgba(33, 33, 33, 0.8);
 }
+
+.picked-square {
+  background-color: white;
+  background-clip: padding-box;
+  overflow: hidden;
+  /* background-clip: content-box; */
+}
