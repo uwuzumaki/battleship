@@ -1,6 +1,6 @@
 import "./ShipPlacement.css";
 import PlayerBoard from "../PlayerController/PlayerController";
-import { Ship } from "../factories/Ship/Ship";
+import ShipPicker from "../ShipPicker/ShipPicker";
 
 const ShipPlacement = () => {
   const modal = document.getElementById("newboard-modal");
@@ -16,110 +16,11 @@ const ShipPlacement = () => {
   newBoardBody.id = "newgame-container";
   modal.appendChild(newBoardBody);
 
-  const player = PlayerBoard("newgame-player-board", "newgame-container");
-  const board = document.getElementById("newgame-player-board");
-  board.addEventListener("mouseover", (e) => {
-    if (e.target.classList.contains("square-solid")) {
-      const location = parseInt(e.target.id.match(/\d+/g)[0]);
-      const valid = player.gameboard.isValidShip(location, "e", currentShip);
-      if (valid) {
-        for (let i = 0; i < currentShip.length; i++) {
-          const square = document.getElementById(
-            `newgame-player-board-square-${location + i}`
-          );
-          square.classList.add("picked-square");
-        }
-      }
-    }
-  });
-  board.addEventListener("mouseout", (e) => {
-    if (e.target.classList.contains("square-solid")) {
-      const location = parseInt(e.target.id.match(/\d+/g)[0]);
-      const valid = player.gameboard.isValidShip(location, "e", currentShip);
-      if (valid) {
-        for (let i = 0; i < currentShip.length; i++) {
-          const square = document.getElementById(
-            `newgame-player-board-square-${location + i}`
-          );
-          square.classList.remove("picked-square");
-        }
-      }
-    }
-  });
-  board.addEventListener("click", (e) => {
-    if (e.target.classList.contains("square-solid")) {
-      const location = parseInt(e.target.id.match(/\d+/g)[0]);
-      const valid = player.gameboard.isValidShip(location, "e", currentShip);
-      if (valid) {
-        player.gameboard.addShip(location, "e", currentShip);
-        currentShip = nullShip;
-      }
-    }
-  });
+  let player = PlayerBoard("newgame-player-board", "newgame-container");
+  ShipPicker(player);
 
   // ----- Controls the board end -----
-  // ----- Controls the ship start -----
-  const newShipHolder = document.createElement("div");
-  newShipHolder.id = "newship-holder";
-  newBoardBody.appendChild(newShipHolder);
-
-  for (let i = 5; i > 1; i--) {
-    const shipDiv = document.createElement("div");
-    for (let j = i; j > 0; j--) {
-      const innerBox = document.createElement("div");
-      innerBox.classList.add("inner-box");
-      shipDiv.appendChild(innerBox);
-    }
-    shipDiv.classList.add("ship-holder-div");
-    shipDiv.dataset.shipNumber = `${i}`;
-    newShipHolder.appendChild(shipDiv);
-  }
-
-  const shipDiv = document.createElement("div");
-  for (let i = 3; i > 0; i--) {
-    const innerBox = document.createElement("div");
-    innerBox.classList.add("inner-box");
-    shipDiv.appendChild(innerBox);
-  }
-  shipDiv.classList.add("ship-holder-div");
-  shipDiv.dataset.shipNumber = "0";
-  newShipHolder.insertBefore(
-    shipDiv,
-    document.querySelector("[data-ship-number='3']")
-  );
-
-  const carrier = new Ship(5);
-  const battleship = new Ship(4);
-  const destroyer = new Ship(3);
-  const submarine = new Ship(3);
-  const patrolBoat = new Ship(2);
-  const nullShip = new Ship(0);
-
-  let currentShip = nullShip;
-  newShipHolder.addEventListener("click", (e) => {
-    const ship = e.target.parentNode.dataset.shipNumber;
-    if (e.target.parentNode.classList.contains("ship-holder-div")) {
-      switch (ship) {
-        case "5":
-          currentShip = carrier;
-          break;
-        case "4":
-          currentShip = battleship;
-          break;
-        case "3":
-          currentShip = destroyer;
-          break;
-        case "2":
-          currentShip = patrolBoat;
-          break;
-        case "0":
-          currentShip = submarine;
-          break;
-      }
-    }
-    console.log(currentShip);
-  });
-
+  // ----- Controls the Confirm and Reset Button -----
   const confirmDiv = document.createElement("div");
   confirmDiv.id = "confirm-div";
   modal.appendChild(confirmDiv);
@@ -132,7 +33,16 @@ const ShipPlacement = () => {
   const resetButton = document.createElement("div");
   resetButton.classList.add("modal-button");
   resetButton.textContent = "Reset";
+  resetButton.addEventListener("click", resetShips);
   confirmDiv.appendChild(resetButton);
+
+  function resetShips(e) {
+    e.preventDefault();
+    const container = document.getElementById("newgame-container");
+    container.textContent = "";
+    player = PlayerBoard("newgame-player-board", "newgame-container");
+    ShipPicker(player);
+  }
 };
 
 export default ShipPlacement;
