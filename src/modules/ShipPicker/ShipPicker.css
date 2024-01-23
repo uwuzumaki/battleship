@@ -1,0 +1,38 @@
+#newship-holder {
+  margin: 5rem;
+  display: flex;
+  width: 10rem;
+  max-width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ship-holder-div {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.inner-box {
+  aspect-ratio: 1/1;
+  max-width: 1.5rem;
+  flex: 0 1 100px;
+  margin: -1px 0 0 -1px;
+  background-color: #18abe6;
+  border: var(--border);
+}
+
+#confirm-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.picked-square {
+  background-color: white;
+  background-clip: padding-box;
+  overflow: hidden;
+  /* background-clip: content-box; */
+}
