@@ -19,6 +19,7 @@ const NewGame = () => {
   modal.appendChild(modalC);
 
   //------------ Confirmation Start ------------
+  let player;
   const modalRestart = document.createElement("div");
   modalRestart.id = "restart";
   modalC.appendChild(modalRestart);
@@ -41,7 +42,7 @@ const NewGame = () => {
   restartYes.addEventListener("click", () => {
     modalRestart.style.display = "none";
     newBoardModal.style.display = "flex";
-    ShipPlacement();
+    player = ShipPlacement();
   });
 
   const newBoardModal = document.createElement("div");
@@ -77,6 +78,7 @@ const NewGame = () => {
       modal.style.display = "none";
     }
   };
+  return player;
 };
 
 export default NewGame;

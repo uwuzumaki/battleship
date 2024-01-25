@@ -1,4 +1,5 @@
 import PlayerBoard from "../PlayerController/PlayerController";
+import NewGame from "../NewGame/NewGame";
 import "./Main.css";
 
 const Main = () => {
@@ -17,7 +18,7 @@ const Main = () => {
   playerTitle.innerHTML = "Player Ships";
   playerDiv.appendChild(playerTitle);
 
-  PlayerBoard("player-board", "player-div");
+  const player = PlayerBoard("player-board", "player-div");
 
   const oppDiv = document.createElement("div");
   oppDiv.id = "opp-div";
@@ -28,7 +29,8 @@ const Main = () => {
   oppTitle.innerHTML = "Enemy Ships";
   oppDiv.appendChild(oppTitle);
 
-  PlayerBoard("opp-board", "opp-div");
+  const opponent = PlayerBoard("opp-board", "opp-div");
+  NewGame();
 };
 
 export default Main;

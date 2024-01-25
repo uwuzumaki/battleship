@@ -28,7 +28,15 @@ const ShipPlacement = () => {
   const confirmButton = document.createElement("div");
   confirmButton.classList.add("modal-button");
   confirmButton.textContent = "Confirm";
+  confirmButton.addEventListener("click", confirmShips);
   confirmDiv.appendChild(confirmButton);
+
+  function confirmShips(e) {
+    e.preventDefault();
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+    console.log(player);
+  }
 
   const resetButton = document.createElement("div");
   resetButton.classList.add("modal-button");
@@ -43,6 +51,7 @@ const ShipPlacement = () => {
     player = PlayerBoard("newgame-player-board", "newgame-container");
     ShipPicker(player);
   }
+  return player;
 };
 
 export default ShipPlacement;

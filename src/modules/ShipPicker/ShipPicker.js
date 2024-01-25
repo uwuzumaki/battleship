@@ -104,5 +104,6 @@ const ShipPicker = (player) => {
     }
     console.log(currentShip);
   });
+  return player;
 };
 export default ShipPicker;
