@@ -1,6 +1,7 @@
 import "./ShipPlacement.css";
 import PlayerBoard from "../PlayerController/PlayerController";
 import ShipPicker from "../ShipPicker/ShipPicker";
+import Update from "../Update/Update";
 
 const ShipPlacement = () => {
   const modal = document.getElementById("newboard-modal");
@@ -35,7 +36,7 @@ const ShipPlacement = () => {
     e.preventDefault();
     const modal = document.getElementById("modal");
     modal.style.display = "none";
-    console.log(player);
+    Update(player);
   }
 
   const resetButton = document.createElement("div");

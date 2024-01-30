@@ -4,6 +4,7 @@ import "./Main.css";
 
 const Main = () => {
   const app = document.getElementById("app");
+  let newPlayer;
 
   const container = document.createElement("div");
   container.id = "content";
@@ -30,7 +31,7 @@ const Main = () => {
   oppDiv.appendChild(oppTitle);
 
   const opponent = PlayerBoard("opp-board", "opp-div");
-  NewGame();
+  newPlayer = NewGame();
 };
 
 export default Main;
