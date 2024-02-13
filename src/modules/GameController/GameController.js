@@ -1,8 +1,8 @@
+import NewGame from "../NewGame/NewGame";
 import { Gameboard } from "../factories/Gameboard/Gameboard";
 
 const GameController = () => {
-  const player = new Gameboard();
-  const opponent = new Gameboard();
+  NewGame();
 };
 
 export default GameController;

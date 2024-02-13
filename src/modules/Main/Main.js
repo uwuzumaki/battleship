@@ -1,4 +1,5 @@
 import PlayerBoard from "../PlayerController/PlayerController";
+import GameController from "../GameController/GameController";
 import NewGame from "../NewGame/NewGame";
 import "./Main.css";
 
@@ -31,7 +32,8 @@ const Main = () => {
   oppDiv.appendChild(oppTitle);
 
   const opponent = PlayerBoard("opp-board", "opp-div");
-  newPlayer = NewGame();
+  GameController();
+  // newPlayer = NewGame();
 };
 
 export default Main;

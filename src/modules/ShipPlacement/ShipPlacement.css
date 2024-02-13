@@ -3,7 +3,7 @@
 }
 
 #newboard-modal {
-  display: none;
+  display: block;
   flex-direction: column;
 }
 
