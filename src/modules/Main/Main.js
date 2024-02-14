@@ -32,7 +32,7 @@ const Main = () => {
   oppDiv.appendChild(oppTitle);
 
   const opponent = PlayerBoard("opp-board", "opp-div");
-  GameController();
+  NewGame();
   // newPlayer = NewGame();
 };
 
