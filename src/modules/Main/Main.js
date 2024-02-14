@@ -32,6 +32,11 @@ const Main = () => {
   oppDiv.appendChild(oppTitle);
 
   const opponent = PlayerBoard("opp-board", "opp-div");
+
+  const opponentBoard = document.getElementById("opp-board");
+  opponentBoard.addEventListener("click", (e) => {
+    console.log(e.target);
+  });
   NewGame();
   // newPlayer = NewGame();
 };

@@ -23,9 +23,7 @@ const PlayerBoard = (childID, parentID) => {
   }
 
   if (parentID === "opp-div") {
-    boardContainer.addEventListener("mouseover", (e) => {
-      console.log(e.target.id);
-    });
+    boardContainer.addEventListener("mouseover", (e) => {});
   }
   return playerBoard;
 };
