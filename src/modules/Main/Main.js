@@ -2,6 +2,7 @@ import PlayerBoard from "../PlayerController/PlayerController";
 import GameController from "../GameController/GameController";
 import NewGame from "../NewGame/NewGame";
 import "./Main.css";
+import Randomize from "../Randomize/Randomize";
 
 const Main = () => {
   const app = document.getElementById("app");
@@ -36,6 +37,7 @@ const Main = () => {
   const opponentBoard = document.getElementById("opp-board");
   opponentBoard.addEventListener("click", (e) => {
     console.log(e.target);
+    Randomize();
   });
   NewGame();
   // newPlayer = NewGame();
