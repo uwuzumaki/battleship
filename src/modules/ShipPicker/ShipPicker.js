@@ -48,30 +48,23 @@ const ShipPicker = (player) => {
     }
   });
 
-  for (let i = 5; i > 1; i--) {
+  const shipHolder = (size) => {
     const shipDiv = document.createElement("div");
-    for (let j = i; j > 0; j--) {
+    for (let j = size; j > 0; j--) {
       const innerBox = document.createElement("div");
       innerBox.classList.add("inner-box");
       shipDiv.appendChild(innerBox);
     }
     shipDiv.classList.add("ship-holder-div");
-    shipDiv.dataset.shipNumber = `${i}`;
+    shipDiv.dataset.shipNumber = `${size}`;
     newShipHolder.appendChild(shipDiv);
-  }
+  };
 
-  const shipDiv = document.createElement("div");
-  for (let i = 3; i > 0; i--) {
-    const innerBox = document.createElement("div");
-    innerBox.classList.add("inner-box");
-    shipDiv.appendChild(innerBox);
-  }
-  shipDiv.classList.add("ship-holder-div");
-  shipDiv.dataset.shipNumber = "0";
-  newShipHolder.insertBefore(
-    shipDiv,
-    document.querySelector("[data-ship-number='3']")
-  );
+  shipHolder(5);
+  shipHolder(4);
+  shipHolder(3);
+  shipHolder(3);
+  shipHolder(2);
 
   const carrier = new Ship(5);
   const battleship = new Ship(4);
