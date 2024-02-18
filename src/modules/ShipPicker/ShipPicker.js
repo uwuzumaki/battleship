@@ -43,12 +43,19 @@ const ShipPicker = (player) => {
       const valid = player.gameboard.isValidShip(location, "e", currentShip);
       if (valid) {
         player.gameboard.addShip(location, "e", currentShip);
+        console.log(currentShip.name);
+        console.log(document.getElementById(currentShip.name));
+        document.getElementById(currentShip.name).style.display = "none";
         currentShip = nullShip;
       }
     }
   });
 
-  const shipHolder = (size) => {
+  const shipHolder = (size, name) => {
+    const shipDivWrapper = document.createElement("div");
+    shipDivWrapper.classList.add("ship-text");
+    shipDivWrapper.id = name;
+    shipDivWrapper.textContent = `${name}`;
     const shipDiv = document.createElement("div");
     for (let j = size; j > 0; j--) {
       const innerBox = document.createElement("div");
@@ -56,41 +63,42 @@ const ShipPicker = (player) => {
       shipDiv.appendChild(innerBox);
     }
     shipDiv.classList.add("ship-holder-div");
-    shipDiv.dataset.shipNumber = `${size}`;
-    newShipHolder.appendChild(shipDiv);
+    shipDiv.dataset.shipName = `${name}`;
+    shipDivWrapper.appendChild(shipDiv);
+    newShipHolder.appendChild(shipDivWrapper);
   };
 
-  shipHolder(5);
-  shipHolder(4);
-  shipHolder(3);
-  shipHolder(3);
-  shipHolder(2);
+  shipHolder(5, "Carrier");
+  shipHolder(4, "Battleship");
+  shipHolder(3, "Destroyer");
+  shipHolder(3, "Submarine");
+  shipHolder(2, "Patrol Boat");
 
-  const carrier = new Ship(5);
-  const battleship = new Ship(4);
-  const destroyer = new Ship(3);
-  const submarine = new Ship(3);
-  const patrolBoat = new Ship(2);
+  const carrier = new Ship(5, "Carrier");
+  const battleship = new Ship(4, "Battleship");
+  const destroyer = new Ship(3, "Destroyer");
+  const submarine = new Ship(3, "Submarine");
+  const patrolBoat = new Ship(2, "Patrol Boat");
   const nullShip = new Ship(0);
 
   let currentShip = nullShip;
   newShipHolder.addEventListener("click", (e) => {
-    const ship = e.target.parentNode.dataset.shipNumber;
+    const ship = e.target.parentNode.dataset.shipName;
     if (e.target.parentNode.classList.contains("ship-holder-div")) {
       switch (ship) {
-        case "5":
+        case "Carrier":
           currentShip = carrier;
           break;
-        case "4":
+        case "Battleship":
           currentShip = battleship;
           break;
-        case "3":
+        case "Destroyer":
           currentShip = destroyer;
           break;
-        case "2":
+        case "Patrol Boat":
           currentShip = patrolBoat;
           break;
-        case "0":
+        case "Submarine":
           currentShip = submarine;
           break;
       }

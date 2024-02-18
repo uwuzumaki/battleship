@@ -7,6 +7,10 @@
   justify-content: space-between;
 }
 
+.ship-text {
+  color: blue;
+}
+
 .ship-holder-div {
   width: auto;
   display: flex;
@@ -19,7 +23,6 @@
   max-width: 1.5rem;
   flex: 0 1 100px;
   margin: -1px 0 0 -1px;
-  background-color: #18abe6;
   border: var(--border);
 }
 
@@ -35,4 +38,24 @@
   background-clip: padding-box;
   overflow: hidden;
   /* background-clip: content-box; */
+}
+
+#Carrier > .ship-holder-div > .inner-box {
+  background-color: red;
+}
+
+#Battleship > .ship-holder-div > .inner-box {
+  background-color: green;
+}
+
+#Destroyer > .ship-holder-div > .inner-box {
+  background-color: blue;
+}
+
+[id="Patrol Boat"] > .ship-holder-div > .inner-box {
+  background-color: yellow;
+}
+
+#Submarine > .ship-holder-div > .inner-box {
+  background-color: lime;
 }
