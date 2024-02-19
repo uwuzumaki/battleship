@@ -2,6 +2,7 @@ import "./ShipPlacement.css";
 import PlayerBoard from "../PlayerController/PlayerController";
 import ShipPicker from "../ShipPicker/ShipPicker";
 import Update from "../Update/Update";
+import Randomize from "../Randomize/Randomize";
 
 const ShipPlacement = () => {
   const modal = document.getElementById("newboard-modal");
@@ -18,10 +19,12 @@ const ShipPlacement = () => {
   modal.appendChild(newBoardBody);
 
   let player = PlayerBoard("newgame-player-board", "newgame-container");
-  ShipPicker(player);
+  player = ShipPicker(player);
 
   // ----- Controls the board end -----
   // ----- Controls the Confirm and Reset Button -----
+  let cpu;
+  let combined = [];
   const confirmDiv = document.createElement("div");
   confirmDiv.id = "confirm-div";
   modal.appendChild(confirmDiv);
@@ -36,6 +39,9 @@ const ShipPlacement = () => {
     e.preventDefault();
     const modal = document.getElementById("modal");
     modal.style.display = "none";
+    cpu = Randomize();
+    combined.push(player);
+    combined.push(cpu);
     Update(player);
   }
 
@@ -50,9 +56,9 @@ const ShipPlacement = () => {
     const container = document.getElementById("newgame-container");
     container.textContent = "";
     player = PlayerBoard("newgame-player-board", "newgame-container");
-    ShipPicker(player);
+    player = ShipPicker(player);
   }
-  return player;
+  return combined;
 };
 
 export default ShipPlacement;

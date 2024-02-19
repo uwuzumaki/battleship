@@ -38,15 +38,15 @@ const ShipPicker = (player) => {
     }
   });
   board.addEventListener("click", (e) => {
-    if (e.target.classList.contains("square-solid")) {
-      const location = parseInt(e.target.id.match(/\d+/g)[0]);
-      const valid = player.gameboard.isValidShip(location, "e", currentShip);
-      if (valid) {
-        player.gameboard.addShip(location, "e", currentShip);
-        console.log(currentShip.name);
-        console.log(document.getElementById(currentShip.name));
-        document.getElementById(currentShip.name).style.display = "none";
-        currentShip = nullShip;
+    if (currentShip.length != 0) {
+      if (e.target.classList.contains("square-solid")) {
+        const location = parseInt(e.target.id.match(/\d+/g)[0]);
+        const valid = player.gameboard.isValidShip(location, "e", currentShip);
+        if (valid) {
+          player.gameboard.addShip(location, "e", currentShip);
+          document.getElementById(currentShip.name).style.display = "none";
+          currentShip = nullShip;
+        }
       }
     }
   });
@@ -103,7 +103,6 @@ const ShipPicker = (player) => {
           break;
       }
     }
-    console.log(currentShip);
   });
   return player;
 };

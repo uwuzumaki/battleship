@@ -1,12 +1,9 @@
 import PlayerBoard from "../PlayerController/PlayerController";
-import GameController from "../GameController/GameController";
 import NewGame from "../NewGame/NewGame";
 import "./Main.css";
-import Randomize from "../Randomize/Randomize";
 
 const Main = () => {
   const app = document.getElementById("app");
-  let newPlayer;
 
   const container = document.createElement("div");
   container.id = "content";
@@ -21,7 +18,7 @@ const Main = () => {
   playerTitle.innerHTML = "Player Ships";
   playerDiv.appendChild(playerTitle);
 
-  const player = PlayerBoard("player-board", "player-div");
+  PlayerBoard("player-board", "player-div");
 
   const oppDiv = document.createElement("div");
   oppDiv.id = "opp-div";
@@ -32,15 +29,16 @@ const Main = () => {
   oppTitle.innerHTML = "Enemy Ships";
   oppDiv.appendChild(oppTitle);
 
-  const opponent = PlayerBoard("opp-board", "opp-div");
+  PlayerBoard("opp-board", "opp-div");
 
   const opponentBoard = document.getElementById("opp-board");
   opponentBoard.addEventListener("click", (e) => {
     console.log(e.target);
-    Randomize();
+    console.log(both);
   });
-  NewGame();
-  // newPlayer = NewGame();
+
+  let both;
+  both = NewGame();
 };
 
 export default Main;
