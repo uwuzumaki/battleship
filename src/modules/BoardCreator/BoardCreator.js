@@ -1,19 +1,19 @@
-import "./PlayerController.css";
+import "./BoardCreator.css";
 import { Player } from "../factories/Player/Player";
 
-const PlayerBoard = (childID, parentID) => {
+const BoardCreator = (parentID) => {
   const playerDiv = document.getElementById(parentID);
 
-  const playerBoard = new Player();
+  const boardCreator = new Player();
 
   const boardContainer = document.createElement("div");
   boardContainer.classList.add("boardContainer");
-  boardContainer.id = childID;
+  boardContainer.id = parentID + "-child";
   playerDiv.appendChild(boardContainer);
 
-  for (let i = 0; i < playerBoard.gameboard.board.length; i++) {
+  for (let i = 0; i < boardCreator.gameboard.board.length; i++) {
     const square = document.createElement("div");
-    square.id = `${childID}-square-${i}`;
+    square.id = `${parentID}-child-square-${i}`;
     if (parentID === "opp-div") {
       square.classList.add("square-blink");
     } else {
@@ -25,7 +25,7 @@ const PlayerBoard = (childID, parentID) => {
   if (parentID === "opp-div") {
     boardContainer.addEventListener("mouseover", (e) => {});
   }
-  return playerBoard;
+  return boardCreator;
 };
 
-export default PlayerBoard;
+export default BoardCreator;

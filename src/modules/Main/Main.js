@@ -1,4 +1,4 @@
-import PlayerBoard from "../PlayerController/PlayerController";
+import BoardCreator from "../BoardCreator/BoardCreator";
 import NewGame from "../NewGame/NewGame";
 import "./Main.css";
 
@@ -18,7 +18,7 @@ const Main = () => {
   playerTitle.innerHTML = "Player Ships";
   playerDiv.appendChild(playerTitle);
 
-  PlayerBoard("player-board", "player-div");
+  BoardCreator("player-div");
 
   const oppDiv = document.createElement("div");
   oppDiv.id = "opp-div";
@@ -29,13 +29,13 @@ const Main = () => {
   oppTitle.innerHTML = "Enemy Ships";
   oppDiv.appendChild(oppTitle);
 
-  PlayerBoard("opp-board", "opp-div");
+  BoardCreator("opp-div");
 
-  const opponentBoard = document.getElementById("opp-board");
-  opponentBoard.addEventListener("click", (e) => {
-    console.log(e.target);
-    console.log(both);
-  });
+  // const opponentBoard = document.getElementById("opp-board");
+  // opponentBoard.addEventListener("click", (e) => {
+  //   console.log(e.target);
+  //   console.log(both);
+  // });
 
   let both;
   both = NewGame();

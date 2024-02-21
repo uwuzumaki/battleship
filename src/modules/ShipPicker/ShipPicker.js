@@ -8,7 +8,7 @@ const ShipPicker = (player) => {
   newShipHolder.id = "newship-holder";
   newBoardBody.appendChild(newShipHolder);
 
-  const board = document.getElementById("newgame-player-board");
+  const board = document.getElementById("newgame-container-child");
   board.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("square-solid")) {
       const location = parseInt(e.target.id.match(/\d+/g)[0]);
@@ -16,7 +16,7 @@ const ShipPicker = (player) => {
       if (valid) {
         for (let i = 0; i < currentShip.length; i++) {
           const square = document.getElementById(
-            `newgame-player-board-square-${location + i}`
+            `newgame-container-child-square-${location + i}`
           );
           square.classList.add("picked-square");
         }
@@ -30,7 +30,7 @@ const ShipPicker = (player) => {
       if (valid) {
         for (let i = 0; i < currentShip.length; i++) {
           const square = document.getElementById(
-            `newgame-player-board-square-${location + i}`
+            `newgame-container-child-square-${location + i}`
           );
           square.classList.remove("picked-square");
         }

@@ -48,7 +48,6 @@ const NewGame = () => {
   const newBoardModal = document.createElement("div");
   newBoardModal.id = "newboard-modal";
   modalC.appendChild(newBoardModal);
-  ShipPlacement();
 
   const restartNo = document.createElement("div");
   restartNo.id = "restart-No";

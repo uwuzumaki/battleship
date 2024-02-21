@@ -1,5 +1,5 @@
 import "./ShipPlacement.css";
-import PlayerBoard from "../PlayerController/PlayerController";
+import BoardCreator from "../BoardCreator/BoardCreator";
 import ShipPicker from "../ShipPicker/ShipPicker";
 import Update from "../Update/Update";
 import Randomize from "../Randomize/Randomize";
@@ -18,7 +18,7 @@ const ShipPlacement = () => {
   newBoardBody.id = "newgame-container";
   modal.appendChild(newBoardBody);
 
-  let player = PlayerBoard("newgame-player-board", "newgame-container");
+  let player = BoardCreator("newgame-container");
   player = ShipPicker(player);
 
   // ----- Controls the board end -----
@@ -42,6 +42,7 @@ const ShipPlacement = () => {
     cpu = Randomize();
     combined.push(player);
     combined.push(cpu);
+
     Update(player);
   }
 
@@ -55,7 +56,7 @@ const ShipPlacement = () => {
     e.preventDefault();
     const container = document.getElementById("newgame-container");
     container.textContent = "";
-    player = PlayerBoard("newgame-player-board", "newgame-container");
+    player = BoardCreator("newgame-container");
     player = ShipPicker(player);
   }
   return combined;
