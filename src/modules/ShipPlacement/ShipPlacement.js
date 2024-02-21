@@ -1,5 +1,6 @@
 import "./ShipPlacement.css";
 import BoardCreator from "../BoardCreator/BoardCreator";
+import GameController from "../GameController/GameController";
 import ShipPicker from "../ShipPicker/ShipPicker";
 import Update from "../Update/Update";
 import Randomize from "../Randomize/Randomize";
@@ -37,6 +38,8 @@ const ShipPlacement = () => {
 
   function confirmShips(e) {
     e.preventDefault();
+    document.getElementById("opp-div-child").remove();
+    BoardCreator("opp-div");
     const modal = document.getElementById("modal");
     modal.style.display = "none";
     cpu = Randomize();
@@ -44,6 +47,8 @@ const ShipPlacement = () => {
     combined.push(cpu);
     Update(player, 0);
     Update(cpu, 1);
+    console.log(combined);
+    GameController(combined);
   }
 
   const resetButton = document.createElement("div");
