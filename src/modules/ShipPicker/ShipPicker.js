@@ -1,6 +1,9 @@
 import "./ShipPicker.css";
 import { Ship } from "../factories/Ship/Ship";
 
+// This functions creates the holder for the ships in the "Place your ships!" modal
+// Each ship can be clicked and then placed on the board.
+// Once placed on the board, it will be added to a player object that gets returned to ShipPlacement
 const ShipPicker = (player) => {
   const newBoardBody = document.getElementById("newgame-container");
 
