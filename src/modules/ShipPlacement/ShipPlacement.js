@@ -42,8 +42,8 @@ const ShipPlacement = () => {
     cpu = Randomize();
     combined.push(player);
     combined.push(cpu);
-
-    Update(player);
+    Update(player, 0);
+    Update(cpu, 1);
   }
 
   const resetButton = document.createElement("div");
