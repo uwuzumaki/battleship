@@ -1,6 +1,9 @@
 import "./BoardCreator.css";
 import { Player } from "../factories/Player/Player";
 
+// This function creates all 3 boards (Player, CPU, and placement).
+// It creates a blank 10x10 grid, then accepts a parentID and behaves differently based on each ID.
+// If ID = opp-div, it appends the square-blink class, else square-solid class
 const BoardCreator = (parentID) => {
   const playerDiv = document.getElementById(parentID);
 
