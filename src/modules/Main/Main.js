@@ -31,14 +31,7 @@ const Main = () => {
 
   BoardCreator("opp-div");
 
-  // const opponentBoard = document.getElementById("opp-board");
-  // opponentBoard.addEventListener("click", (e) => {
-  //   console.log(e.target);
-  //   console.log(both);
-  // });
-
-  let both;
-  both = NewGame();
+  NewGame();
 };
 
 export default Main;

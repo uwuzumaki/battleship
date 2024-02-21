@@ -1,3 +1,5 @@
+import GameController from "../GameController/GameController";
+import BoardCreator from "../BoardCreator/BoardCreator";
 import ShipPlacement from "../ShipPlacement/ShipPlacement";
 import "./NewGame.css";
 
@@ -19,7 +21,7 @@ const NewGame = () => {
   modal.appendChild(modalC);
 
   //------------ Confirmation Start ------------
-  let both;
+  let combined;
   const modalRestart = document.createElement("div");
   modalRestart.id = "restart";
   modalC.appendChild(modalRestart);
@@ -42,7 +44,10 @@ const NewGame = () => {
   restartYes.addEventListener("click", () => {
     modalRestart.style.display = "none";
     newBoardModal.style.display = "flex";
-    both = ShipPlacement();
+    combined = ShipPlacement();
+    document.getElementById("opp-div-child").remove();
+    BoardCreator("opp-div");
+    GameController();
   });
 
   const newBoardModal = document.createElement("div");
@@ -78,7 +83,7 @@ const NewGame = () => {
       modal.style.display = "none";
     }
   };
-  return both;
+  return combined;
 };
 
 export default NewGame;

@@ -7,12 +7,10 @@ const Update = (player, board) => {
       const square = document.getElementById(
         `player-div-child-square-${player.gameboard.shipLocations[i]}`
       );
-      console.log(square);
       square.style.backgroundColor = "red";
     }
   }
   if (board == 1) {
-    console.log(player);
     for (let i = 0; i <= 99; i++) {
       document.getElementById(`opp-div-child-square-${i}`).style = "none";
     }
