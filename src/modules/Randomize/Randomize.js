@@ -3,7 +3,7 @@ import { Ship } from "../factories/Ship/Ship";
 
 const Randomize = () => {
   const cpu = new Player();
-  const rCord = () => Math.floor(Math.random() * 10);
+  const rCord = () => Math.floor(Math.random() * 100);
   const rDir = () => {
     return Math.random() < 0.5;
   };
