@@ -67,22 +67,10 @@ class Gameboard {
     return valid ? ship : null;
   }
 
-  receiveAttack(x, y) {
-    const pos = x * 10 + y;
+  receiveAttack(pos) {
     const hit = this.shipLocations.includes(pos);
     const triedBefore = this.attempts.includes(pos);
     let result;
-    if (hit && !triedBefore) {
-      for (let i = 0; i < this.allShips.length; i++) {
-        const currentShip = this.allShips[i];
-        if (currentShip.location.includes(pos)) {
-          currentShip.shipHit();
-          if (currentShip.getHit() == currentShip.length) {
-            currentShip.updateStatus();
-          }
-        }
-      }
-    }
     triedBefore ? null : this.attempts.push(pos);
     if (hit && !triedBefore) {
       this.board[pos] = 2;
