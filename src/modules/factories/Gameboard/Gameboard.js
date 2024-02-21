@@ -3,7 +3,7 @@ class Gameboard {
     this.board = this.createBoard();
     this.shipLocations = [];
     this.attempts = [];
-    this.allShips = [];
+    // this.allShips = [];
   }
 
   createBoard() {
@@ -17,16 +17,13 @@ class Gameboard {
   isValidShip(initialLocation, direction, ship) {
     let first = parseInt(initialLocation);
     let last = 0;
-    if (direction == "n") last = first - 10 * (ship.length - 1);
     if (direction == "e") last = first + (ship.length - 1);
     if (direction == "s") last = first + 10 * (ship.length - 1);
-    if (direction == "w") last = first - (ship.length - 1);
-
     //Makes sure the ships are placed on the board and don't go off it
     let validLocation;
     //prettier-ignore
-    if (direction == "n" || direction == "s") validLocation = ((first >= 0 && first <= 99) && (last>= 0 && last <=100)) ? true: false
-    if (direction == "e" || direction == "w")
+    if (direction == "s") validLocation = ((first >= 0 && first <= 99) && (last>= 0 && last <=100)) ? true: false
+    if (direction == "e")
       validLocation =
         Math.floor(first / 10) == Math.floor(last / 10) ? true : false;
 
@@ -34,17 +31,11 @@ class Gameboard {
     const locations = [];
     let unoccupied;
     for (let i = 0; i < ship.length; i++) {
-      if (direction == "n") {
-        locations.push(initialLocation - i * 10);
-      }
       if (direction == "e") {
         locations.push(initialLocation + i);
       }
       if (direction == "s") {
         locations.push(initialLocation + i * 10);
-      }
-      if (direction == "w") {
-        locations.push(initialLocation - i);
       }
     }
     this.shipLocations.some((position) => locations.includes(position))
@@ -58,12 +49,6 @@ class Gameboard {
     let valid = this.isValidShip(initialLocation, direction, ship);
     if (valid) {
       for (let i = 0; i < ship.length; i++) {
-        if (direction == "n") {
-          this.board[currentLocation] = 1;
-          this.shipLocations.push(currentLocation);
-          ship.location.push(currentLocation);
-          currentLocation -= 10;
-        }
         if (direction == "e") {
           this.board[currentLocation] = 1;
           this.shipLocations.push(currentLocation);
@@ -76,15 +61,9 @@ class Gameboard {
           ship.location.push(currentLocation);
           currentLocation += 10;
         }
-        if (direction == "w") {
-          this.board[currentLocation] = 1;
-          this.shipLocations.push(currentLocation);
-          ship.location.push(currentLocation);
-          currentLocation -= 1;
-        }
       }
     }
-    this.allShips.push(ship);
+    // this.allShips.push(ship);
     return valid ? ship : null;
   }
 
