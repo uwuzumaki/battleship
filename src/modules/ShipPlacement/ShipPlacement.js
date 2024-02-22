@@ -47,7 +47,6 @@ const ShipPlacement = () => {
     combined.push(cpu);
     Update(player, 0);
     Update(cpu, 1);
-    console.log(combined);
     GameController(combined);
   }
 
