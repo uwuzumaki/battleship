@@ -3,7 +3,6 @@ class Gameboard {
     this.board = this.createBoard();
     this.shipLocations = [];
     this.attempts = [];
-    // this.allShips = [];
   }
 
   createBoard() {
@@ -63,7 +62,6 @@ class Gameboard {
         }
       }
     }
-    // this.allShips.push(ship);
     return valid ? ship : null;
   }
 
